@@ -1,3 +1,0 @@
-"use strict";
-const colors = ["green", "red", "rgba(133,122,200)", "#f15025"];
-const button = document.getElementById("flipper-btn");
