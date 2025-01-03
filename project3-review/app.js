@@ -30,7 +30,7 @@ const reviews = [
 ];
 
 const img = document.getElementById("person-img");
-const author = document.getElementById("auther");
+const author = document.getElementById("author");
 const job = document.getElementById("job");
 const info = document.getElementById("info");
 
@@ -39,3 +39,37 @@ const nextBtn = document.querySelector(".next-btn");
 const randomBtn = document.querySelector(".random-btn");
 
 let currentItem = 0;
+
+document.addEventListener("DOMContentLoaded", () => {
+  showPerson(currentItem);
+});
+
+prevBtn.addEventListener("click", () => {
+  currentItem--;
+  currentItem = currentItem < 0 ? reviews.length - 1 : currentItem;
+  showPerson(currentItem);
+});
+
+nextBtn.addEventListener("click", () => {
+  currentItem++;
+  // currentItem = currentItem > reviews.length - 1 ? 0 : currentItem;
+  currentItem %= reviews.length;
+  showPerson(currentItem);
+});
+
+randomBtn.addEventListener("click", () => {
+  currentItem = getRandomNumber();
+  showPerson(currentItem);
+});
+
+const showPerson = (personId) => {
+  console.log(personId);
+  
+  let person = reviews[personId];
+  img.src = person.img;
+  author.textContent = person.name;
+  job.textContent = person.job;
+  info.textContent = person.text;
+};
+
+const getRandomNumber = () => Math.floor(Math.random() * reviews.length);
