@@ -43,12 +43,12 @@ const showWinner = (winner, userChoice, computerChoice) => {
     userScore++;
     userScoreBoard.innerText = userScore;
     message.style.backgroundColor = "green";
-    message.innerText = `You won! ${userChoice} beats ${computerChoice}.`;
+    message.innerText = `You won! Your ${userChoice} beats ${computerChoice}.`;
   } else if (winner == "computer") {
     computerScore++;
     computerScoreBoard.innerText = computerScore;
     message.style.backgroundColor = "red";
-    message.innerText = `You lost! ${computerChoice} beats ${userChoice}.`;
+    message.innerText = `You lost! ${computerChoice} beats your ${userChoice}.`;
   }
 };
 
