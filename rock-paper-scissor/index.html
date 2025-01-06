@@ -9,31 +9,32 @@
   </head>
   <body>
     <h1>Rock Paper Scissors</h1>
-    <div class="choices">
-      <div class="choice" id="rock">
-        <img src="./images/rock.png" alt="rock" />
+    <main class="container-fluid">
+      <div class="choices">
+        <div class="choice" id="rock">
+          <img src="./images/rock.png" alt="rock" />
+        </div>
+        <div class="choice" id="paper">
+          <img src="./images/paper.png" alt="rock" />
+        </div>
+        <div class="choice" id="scissors">
+          <img src="./images/scissors.png" alt="rock" />
+        </div>
       </div>
-      <div class="choice" id="paper">
-        <img src="./images/paper.png" alt="rock" />
+      <div class="score-board">
+        <div class="score">
+          <p><span id="user-score">0</span></p>
+          <p>You</p>
+        </div>
+        <div class="score">
+          <p><span id="computer-score">0</span></p>
+          <p>Computer</p>
+        </div>
       </div>
-      <div class="choice" id="scissors">
-        <img src="./images/scissors.png" alt="rock" />
+      <div class="message-container">
+        <p id="message">Make Your Move</p>
       </div>
-    </div>
-
-    <div class="score-board">
-      <div class="score">
-        <p><span id="user-score">0</span></p>
-        <p>You</p>
-      </div>
-      <div class="score">
-        <p><span id="computer-score">0</span></p>
-        <p>Computer</p>
-      </div>
-    </div>
-    <div class="msg-container">
-      <p id="msg">Make Your Move</p>
-    </div>
+    </main>
     <script src="app.js"></script>
   </body>
 </html>
