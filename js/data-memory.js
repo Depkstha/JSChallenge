@@ -26,45 +26,94 @@
 // });
 
 const promise1 = new Promise((resolve, reject) => {
-    //DB calls, API calls, Reading and writing file, File upload, Error handling, Processing image, Lazy loading, Web socket or Event handling 
-    setTimeout(() => {
-        console.log("Async task is complete");
-        resolve();
-    })
-})
+  //DB calls, API calls, Reading and writing file, File upload, Error handling, Processing image, Lazy loading, Web socket or Event handling
+  setTimeout(() => {
+    console.log("Async task is complete");
+    resolve();
+  });
+});
 
 promise1.then(() => {
-    console.log("Promise 1 resolved");
-})
+  console.log("Promise 1 resolved");
+});
 
-//Handling multiple execution 
+//Handling multiple execution
 const task1 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        console.log("Async task 1 is complete");
-        resolve();
-    })
-})
+  setTimeout(() => {
+    console.log("Async task 1 is complete");
+    resolve();
+  });
+});
 
 const task2 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        console.log("Async task 2 is complete");
-        resolve();
-    })
-})
+  setTimeout(() => {
+    console.log("Async task 2 is complete");
+    resolve();
+  });
+});
 
 Promise.all([task1, task2]).then(() => {
-    console.log("All tasks are complete");
-})
+  console.log("All tasks are complete");
+});
 
 //Passing parameter in promise
 
 const task3 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        console.log("Async task 3 is complete");
-        resolve({name: "Deepak Shrestha", age: 26});
-    }, 1000)
-})
+  setTimeout(() => {
+    console.log("Async task 3 is complete");
+    resolve({ name: "Deepak Shrestha", age: 26 });
+  }, 1000);
+});
 
 task3.then((data) => {
+  console.log(data);
+});
+
+//Error handling using then
+const promiseFour = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const error = false;
+    if (!error) {
+      resolve({ name: "Deepak Shrestha", age: 26 });
+    } else {
+      reject("Error: Something went wrong");
+    }
+  }, 1000);
+});
+
+promiseFour
+  .then((data) => {
     console.log(data);
-})  
+    return data.name;
+  })
+  .then((name) => {
+    console.log(name);
+  })
+  .catch((error) => {
+    console.log(error);
+  }).finally(() => {
+    console.log("Finally");
+  });
+
+//Error handling using async await
+const promiseFive = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const error = false;
+    if (!error) {
+      resolve({ name: "Deepak Shrestha", age: 26 });
+    } else {
+      reject("Error: Something went wrong");
+    }
+  }, 1000);
+});
+
+async function consumePromiseFive() {
+    try {
+        const response = await promiseFive;
+        console.log(response);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+consumePromiseFive()
