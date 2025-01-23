@@ -91,7 +91,8 @@ promiseFour
   })
   .catch((error) => {
     console.log(error);
-  }).finally(() => {
+  })
+  .finally(() => {
     console.log("Finally");
   });
 
@@ -108,12 +109,39 @@ const promiseFive = new Promise((resolve, reject) => {
 });
 
 async function consumePromiseFive() {
-    try {
-        const response = await promiseFive;
-        console.log(response);
-    } catch (error) {
-        console.log(error);
-    }
+  try {
+    const response = await promiseFive;
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-consumePromiseFive()
+consumePromiseFive();
+
+for (let i = 0; i < 10; i++) {
+  setTimeout(() => {
+    console.log(i);
+  }, 1000);
+}
+
+let fname = "root";
+if (0 === 1) {
+  let fname = "deepak";
+}
+console.log(fname);
+
+/**
+ * Reverses a given string.
+ * @param {string} string The string to be reversed.
+ * @returns {string} The reversed string.
+ */
+function reverseString(string) {
+  if (string === "") {
+    return "";
+  }
+
+  return string.split("").reverse().join("");
+}
+
+console.log(reverseString(""));
